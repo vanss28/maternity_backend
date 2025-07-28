@@ -23,7 +23,7 @@ export const createReport = async (req, res) => {
     let fastApiError = null;
     try {
       const fastApiRes = await axios.post(
-        "http://localhost:8000/analyze", // Change if FastAPI runs elsewhere
+        "https://mrp999-mh-project.hf.space/analyze", // Change if FastAPI runs elsewhere
         { data }
       );
       recommendations = fastApiRes.data;
@@ -79,7 +79,7 @@ export const getReportById = async (req, res) => {
 // Call FastAPI for pregnancy risk prediction
 export const predictPregnancyRisk = async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:8000/predict_preg", req.body);
+    const response = await axios.post("https://mrp999-mh-project.hf.space/predict_preg", req.body);
     res.json(response.data);
   } catch (err) {
     res.status(500).json({ error: "Failed to get pregnancy risk prediction", details: err.message });
@@ -89,7 +89,7 @@ export const predictPregnancyRisk = async (req, res) => {
 // Call FastAPI for fetal risk prediction
 export const predictFetalRisk = async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:8000/predict_fetal", req.body);
+    const response = await axios.post("https://mrp999-mh-project.hf.space/predict_fetal", req.body);
     res.json(response.data);
   } catch (err) {
     res.status(500).json({ error: "Failed to get fetal risk prediction", details: err.message });
@@ -99,7 +99,7 @@ export const predictFetalRisk = async (req, res) => {
 // Call FastAPI for rules-based recommendations
 export const analyzeReport = async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:8000/analyze", req.body);
+    const response = await axios.post("https://mrp999-mh-project.hf.space/analyze", req.body);
     res.json(response.data);
   } catch (err) {
     res.status(500).json({ error: "Failed to get analysis from FastAPI", details: err.message });
