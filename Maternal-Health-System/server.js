@@ -41,6 +41,10 @@ const swaggerDefinition = {
   servers: [
     {
       url: "http://localhost:" + (process.env.PORT || 3000),
+      
+    },
+    {
+      url:"https://maternity-backend-1.onrender.com/"
     },
   ],
 };
